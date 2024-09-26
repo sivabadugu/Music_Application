@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(0, 102, 204, 0.6) 40%, rgba(0, 204, 153, 0.6) 72%);
+}
+
+.container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(220, 220, 220, 0.9)); /* Subtle gradient */
+  width: 400px;
+  height: 550px;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Softer shadow */
+}
+
+.player_img {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  top: -50px;
+  left: 50px;
+}
+
+.player_img img {
+  object-fit: cover;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.player_img img.active {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+h4 {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+  color: #333; /* Dark gray for contrast */
+}
+
+h5 {
+  font-size: 1rem;
+  text-align: center;
+  color: #666; /* Medium gray for better visibility */
+}
+
+.player_progress {
+  background: linear-gradient(to right, #c89666, #f0e68c); /* Gradient for the progress bar */
+  border-radius: 5px;
+  height: 6px;
+  width: 90%;
+  margin: 40px 20px 35px;
+  position: relative;
+  cursor: pointer;
+}
+
+#progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, #c89666, #f0e68c); /* Gradient for the progress slider */
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 40px 0;
+}
+
+#progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(135deg, #4caf50, #66bb6a); /* Gradient for thumb */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #388e3c; /* Darker green border */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.music_duration {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -25px;
+}
+
+.player_controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-solid {
+  font-size: 20px;
+  color: #c89666; /* Dark gray for better visibility */
+  cursor: pointer;
+  margin-right: 30px;
+  user-select: none;
+}
+
+.fa-solid:hover {
+  color: #c89666; /* Lighter gray on hover */
+  transform: translateY(-2px);
+  background: linear-gradient(to right, #e1b382, #f0e68c); /* Gradient background on hover */
+  border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+.fa-solid:active {
+  transform: scale(0.9);
+  color: #c89666; /* Darker gray on click */
+}
+
+.play-button {
+  color: #c89666; /* Soft orange for play */
+  font-size: 48px;
+}
+
+.play-button:hover {
+  background: linear-gradient(to right, #f0e68c, #e1b382); /* Gradient for hover */
+  color: #fff; /* Change text color on hover */
+  transform: scale(1.1);
+}
+
+.play-button:active {
+  transform: scale(0.9);
+}
+
+.next-button {
+  color: #66bb6a; /* Soft green for next */
+  font-size: 36px;
+}
+
+.next-button:hover {
+  background: linear-gradient(to right, #e1b382, #66bb6a);
+  color: #fff;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.next-button:active {
+  transform: scale(0.9);
+}
+
+.prev-button {
+  color: #42a5f5; /* Soft blue for previous */
+  font-size: 36px;
+}
+
+.prev-button:hover {
+  background: linear-gradient(to right, #e1b382, #42a5f5);
+  color: #fff;
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.prev-button:active {
+  transform: scale(0.9);
+}
+
+.liked {
+  color: #e57373; /* Soft red for liked */
+}
+
+.unliked {
+  color: #c89666; /* Dark gray for unliked */
+}
+
+.liked:hover,
+.unliked:hover {
+  transform: scale(1.2);
+}
+
+.liked:active,
+.unliked:active {
+  transform: scale(0.9);
+}
+
+.fa-share {
+  color: #c89666; /* Soft orange for share */
+}
+
+.fa-share:hover {
+  transform: scale(1.1);
+  color: #d32f2f; /* Darker red on hover */
+}
+
+.fa-share:active {
+  transform: scale(0.9);
+}
+
+.fa-shuffle {
+  color: #e1b382; /* Soft orange for shuffle */
+}
+
+.fa-shuffle:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.fa-shuffle:active {
+  transform: scale(0.9);
+}
+
+.fa-repeat {
+  color: #e1b382; /* Soft orange for repeat */
+}
+
+.fa-repeat:hover {
+  transform: rotate(-15deg) scale(1.1);
+}
+
+.fa-repeat:active {
+  transform: scale(0.9);
+}
+
+/* Additional Styles */
+.group-button {
+  display: inline-flex;
+  gap: 10px; /* Space between buttons */
+}
+
+.group-button:hover .button {
+  transform: scale(1.05);
+}
+
+/* Accessibility Enhancements */
+:focus-visible {
+  outline: 2px dashed #c89666; /* Outline for focused elements */
+}
+/* Active state for repeat button */
+.fa-repeat.active {
+  color: #ff9800; /* Bright orange for active repeat */
+  transform: scale(1.1); /* Slightly larger for emphasis */
+}
+
+/* Active state for shuffle button */
+.fa-shuffle.active {
+  color: #ff9800; /* Bright orange for active shuffle */
+  transform: scale(1.1); /* Slightly larger for emphasis */
+}
+
+/* Transition effects for active states */
+.fa-repeat, .fa-shuffle {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Adding a hover effect for active states */
+.fa-repeat.active:hover,
+.fa-shuffle.active:hover {
+  transform: rotate(15deg) scale(1.15); /* More pronounced hover effect */
+}
